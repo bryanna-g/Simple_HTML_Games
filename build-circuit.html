@@ -8,9 +8,6 @@
   :root{
     --bg0:#070A12;
     --bg1:#0B1430;
-    --bg2:#0A1B3F;
-    --card:rgba(255,255,255,.06);
-    --card2:rgba(255,255,255,.08);
     --stroke:rgba(255,255,255,.14);
     --text:#EAF0FF;
     --muted:#AAB7E4;
@@ -31,104 +28,52 @@
       linear-gradient(180deg, var(--bg1), var(--bg0) 70%);
     min-height:100vh;
   }
-  .shell{
-    max-width:1240px;
-    margin:0 auto;
-    padding:14px 18px 28px;
-  }
+  .shell{max-width:1240px;margin:0 auto;padding:14px 18px 28px;}
 
   /* Top instructions bar */
-  .topbar{
-    display:flex;
-    gap:14px;
-    align-items:stretch;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    margin-bottom:14px;
-  }
+  .topbar{display:flex;gap:14px;align-items:stretch;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px;}
   .brand{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    padding:14px 14px;
-    border-radius:18px;
+    display:flex;flex-direction:column;gap:6px;
+    padding:14px 14px;border-radius:18px;
     background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
     border:1px solid var(--stroke);
     box-shadow: 0 18px 38px rgba(0,0,0,.35);
-    flex: 1 1 520px;
-    min-width: 280px;
+    flex: 1 1 520px;min-width: 280px;
   }
-  .brand h1{
-    margin:0;
-    font-size:18px;
-    letter-spacing:.2px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
+  .brand h1{margin:0;font-size:18px;letter-spacing:.2px;display:flex;align-items:center;gap:10px;}
   .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:6px 10px;
-    border-radius:999px;
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 10px;border-radius:999px;
     border:1px solid rgba(255,255,255,.14);
     background: rgba(255,255,255,.06);
-    color:var(--muted);
-    font-size:12px;
-    font-weight:700;
+    color:var(--muted);font-size:12px;font-weight:700;
   }
-  .steps{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:10px;
-    margin-top:6px;
-  }
+  .steps{display:grid;grid-template-columns: 1fr 1fr;gap:10px;margin-top:6px;}
   @media (max-width: 760px){ .steps{grid-template-columns:1fr} }
   .step{
-    padding:10px 12px;
-    border-radius:16px;
+    padding:10px 12px;border-radius:16px;
     background: rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.10);
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.35;
+    color:var(--muted);font-size:13px;line-height:1.35;
   }
   .step b{color:var(--text)}
   .kbd{
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     background: rgba(0,0,0,.25);
     border:1px solid rgba(255,255,255,.14);
-    padding:2px 6px;
-    border-radius:8px;
-    color:#dbe5ff;
-    font-size:12px;
-    white-space:nowrap;
+    padding:2px 6px;border-radius:8px;color:#dbe5ff;font-size:12px;white-space:nowrap;
   }
 
-  .rightbar{
-    flex: 0 1 430px;
-    min-width: 280px;
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-  }
+  .rightbar{flex: 0 1 430px;min-width: 280px;display:flex;gap:12px;flex-wrap:wrap;}
   .statCard{
-    flex: 1 1 200px;
-    padding:12px 12px;
-    border-radius:18px;
+    flex: 1 1 200px;padding:12px 12px;border-radius:18px;
     background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
     border:1px solid var(--stroke);
     box-shadow: 0 18px 38px rgba(0,0,0,.35);
   }
-  .statGrid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-  }
+  .statGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .metric{
-    padding:10px 10px;
-    border-radius:16px;
+    padding:10px 10px;border-radius:16px;
     background: rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.10);
     min-height:64px;
@@ -138,11 +83,7 @@
   .tiny{font-size:12px;color:var(--muted);line-height:1.35;margin-top:10px}
 
   /* Main layout */
-  .layout{
-    display:grid;
-    grid-template-columns: 360px 1fr;
-    gap:16px;
-  }
+  .layout{display:grid;grid-template-columns: 360px 1fr;gap:16px;}
   @media (max-width: 980px){ .layout{grid-template-columns:1fr} }
 
   .card{
@@ -152,39 +93,21 @@
     padding:14px;
     box-shadow: 0 18px 38px rgba(0,0,0,.35);
   }
-  .card h2{
-    margin:0 0 12px;
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:.34px;
-    color:#d9e2ff;
-  }
+  .card h2{margin:0 0 12px;font-size:12px;text-transform:uppercase;letter-spacing:.34px;color:#d9e2ff;}
 
   /* Toolbox */
-  .toolRow{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:10px;
-  }
+  .toolRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
   .tool{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:10px 12px;
-    border-radius:16px;
+    display:flex;align-items:center;gap:10px;
+    padding:10px 12px;border-radius:16px;
     border:1px solid rgba(255,255,255,.12);
     background: rgba(255,255,255,.04);
-    cursor:pointer;
-    user-select:none;
+    cursor:pointer;user-select:none;
     transition: transform .05s ease, border-color .2s ease, background .2s ease;
   }
   .tool:hover{border-color: rgba(255,255,255,.22)}
   .tool:active{transform: translateY(1px)}
-  .tool.active{
-    border-color: rgba(96,165,250,.85);
-    background: rgba(96,165,250,.16);
-  }
+  .tool.active{border-color: rgba(96,165,250,.85);background: rgba(96,165,250,.16);}
   .icon{
     width:28px;height:28px;border-radius:12px;
     display:grid;place-items:center;
@@ -192,47 +115,81 @@
     background: rgba(0,0,0,.18);
     font-weight:900;
   }
-  .tool .name{
-    display:flex;flex-direction:column;gap:2px;
-    font-size:13px;
-  }
+  .tool .name{display:flex;flex-direction:column;gap:2px;font-size:13px;}
   .tool .name span{color:var(--muted);font-size:12px}
 
-  .buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:12px;
-  }
+  .buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
   button{
     flex:1;
     border:1px solid rgba(255,255,255,.12);
     background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
     color:var(--text);
-    padding:11px 12px;
-    border-radius:16px;
-    cursor:pointer;
-    font-weight:900;
-    font-size:13px;
+    padding:11px 12px;border-radius:16px;
+    cursor:pointer;font-weight:900;font-size:13px;
     transition: transform .05s ease, border-color .2s ease;
   }
   button:hover{border-color: rgba(255,255,255,.22)}
   button:active{transform: translateY(1px)}
   .primary{
+    position:relative;overflow:hidden;
     background: linear-gradient(180deg, rgba(96,165,250,.35), rgba(96,165,250,.12));
     border-color: rgba(96,165,250,.45);
+    box-shadow: 0 16px 30px rgba(96,165,250,.18);
   }
+  .primary::after{
+    content:"";
+    position:absolute;inset:-2px;
+    background: radial-gradient(420px 140px at 20% 20%, rgba(255,255,255,.18), rgba(255,255,255,0) 60%);
+    pointer-events:none;
+  }
+
+  /* Challenge prompt (make it stand out + at top of toolbox) */
+  .challengeBox{
+    margin: 0 0 12px;
+    padding: 12px 12px;
+    border-radius: 18px;
+    border: 1px solid rgba(96,165,250,.45);
+    background:
+      radial-gradient(500px 200px at 15% 20%, rgba(96,165,250,.18), rgba(0,0,0,0) 60%),
+      rgba(255,255,255,.04);
+    box-shadow: 0 16px 30px rgba(0,0,0,.25);
+  }
+  .challengeTitle{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:8px;
+  }
+  .challengeTitle b{letter-spacing:.2px}
+  .chip{
+    padding:6px 10px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.05);
+    color: var(--muted);
+    font-size:12px;font-weight:900;
+  }
+  .challengeText{color:var(--muted);font-size:13px;line-height:1.35;}
+  .challengeText b{color:var(--text)}
+
+  /* Resistor dropdown */
+  .pickerLabel{color: var(--muted); font-size:12px; margin: 0 0 6px 2px;}
+  .picker{
+    width:100%;
+    padding:12px 12px;border-radius:16px;
+    border:1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+    color: var(--text);
+    font-weight:900;
+    outline:none;
+    appearance:none;
+  }
+  .pickerHint{color:var(--muted); font-size:12px; margin-top:8px; line-height:1.35;}
 
   /* Status */
   .status{
     margin-top:12px;
-    padding:12px 12px;
-    border-radius:18px;
+    padding:12px 12px;border-radius:18px;
     border:1px solid rgba(255,255,255,.12);
     background: rgba(255,255,255,.04);
-    font-size:13px;
-    line-height:1.35;
-    color:var(--muted);
+    font-size:13px;line-height:1.35;color:var(--muted);
   }
   .status b{color:var(--text)}
   .status.good{border-color: rgba(52,211,153,.45); background: rgba(52,211,153,.10)}
@@ -240,33 +197,19 @@
   .status.bad{border-color: rgba(251,113,133,.45); background: rgba(251,113,133,.10)}
 
   /* Canvas */
-  .boardWrap{
-    padding:14px;
-  }
-  .boardTop{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:10px;
-  }
+  .boardWrap{padding:14px;}
+  .boardTop{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
   .pill{
-    display:inline-flex;
-    gap:8px;
-    align-items:center;
-    padding:8px 10px;
-    border-radius:999px;
+    display:inline-flex;gap:8px;align-items:center;
+    padding:8px 10px;border-radius:999px;
     background: rgba(255,255,255,.05);
     border:1px solid rgba(255,255,255,.10);
-    color:var(--muted);
-    font-size:12px;
-    font-weight:800;
+    color:var(--muted);font-size:12px;font-weight:800;
   }
   .pill strong{color:var(--text)}
+  
   canvas{
-    width:100%;
-    height:auto;
+    width:100%;height:auto;
     border-radius:20px;
     border:1px solid rgba(255,255,255,.12);
     display:block;
@@ -274,14 +217,11 @@
       radial-gradient(900px 600px at 40% 20%, rgba(96,165,250,.10), rgba(0,0,0,0) 60%),
       linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
     box-shadow: 0 18px 38px rgba(0,0,0,.35);
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
-  .footerHint{
-    margin-top:10px;
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.35;
-  }
+  .footerHint{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.35;}
 </style>
 </head>
 <body>
@@ -328,9 +268,21 @@
       <section class="card">
         <h2>Toolbox</h2>
 
+        <!-- Challenge prompt at TOP of materials/toolbox -->
+        <div class="challengeBox" id="challengeBox">
+          <div class="challengeTitle">
+            <b>Challenge</b>
+            <span class="chip" id="challengeChip">Ready</span>
+          </div>
+          <div class="challengeText" id="challengeText">
+            Click <b>New Challenge</b> to randomize the battery + LED limits, then build a safe loop.
+          </div>
+        </div>
+
+        <!-- Tools -->
         <div class="toolRow" id="toolRow">
           <div class="tool active" data-tool="wire">
-            <div class="icon" style="outline:1px solid rgba(255,255,255,.08)">🧵</div>
+            <div class="icon">🧵</div>
             <div class="name">Wire <span>Connect nodes</span></div>
           </div>
           <div class="tool" data-tool="battery">
@@ -351,15 +303,32 @@
           </div>
         </div>
 
+        <!-- Resistor dropdown (shows only when Resistor tool is selected) -->
+        <div id="resistorPicker" style="display:none; margin: 6px 0 12px;">
+          <div class="pickerLabel">Resistor value</div>
+          <select id="resistorValue" class="picker">
+            <option value="100">100 Ω</option>
+            <option value="220" selected>220 Ω</option>
+            <option value="330">330 Ω</option>
+            <option value="470">470 Ω</option>
+            <option value="1000">1000 Ω (1k)</option>
+            <option value="2000">2000 Ω (2k)</option>
+            <option value="4700">4700 Ω (4.7k)</option>
+          </select>
+          <div class="pickerHint">Tip: Higher resistance → lower current (safer). Lower resistance → brighter (risk burnout).</div>
+        </div>
+
+        <!-- Status -->
+        <div class="status" id="statusBox"></div>
+
+        <!-- Buttons at BOTTOM of materials -->
         <div class="buttons">
           <button id="clearBtn">Clear</button>
           <button class="primary" id="challengeBtn">New Challenge</button>
         </div>
 
-        <div class="status" id="statusBox"></div>
-
         <div class="footerHint">
-          Optional: when placing a resistor, hold <b>Shift</b> to cycle values (100, 220, 330, 470, 1000 Ω).
+          Place parts by clicking a node, then an <b>adjacent</b> node. (Up / down / left / right)
         </div>
       </section>
 
@@ -368,7 +337,7 @@
           <div class="pill">Mode: <strong id="modePill">Place</strong></div>
           <div class="pill">Selected tool: <strong id="toolPill">Wire</strong></div>
         </div>
-        <canvas id="board" width="980" height="560" aria-label="Circuit builder canvas"></canvas>
+        <canvas id="board" width="900" height="900"></canvas>
         <div class="footerHint">
           Click one node (it highlights), then click an adjacent node to place the chosen component between them.
         </div>
@@ -378,10 +347,11 @@
 
 <script>
 /**
- * Aesthetic + guided circuit builder (series loop).
- * - Place parts between adjacent nodes.
- * - Detect a single closed loop; require exactly 1 battery + 1 LED + ≥1 resistor.
- * - Compute I = (V - Vf)/R, check LED on/burnout thresholds.
+ * Circuit Builder: series-loop learning game
+ * - Place parts between adjacent nodes
+ * - Detect a single closed loop
+ * - Require exactly 1 battery + 1 LED + >=1 resistor
+ * - Compute I = (V - Vf)/R and show safe / dim / burnout feedback
  */
 
 const canvas = document.getElementById("board");
@@ -396,6 +366,9 @@ const dx = GW/(COLS-1), dy = GH/(ROWS-1);
 
 // UI
 const toolRow = document.getElementById("toolRow");
+const resistorPicker = document.getElementById("resistorPicker");
+const resistorValue = document.getElementById("resistorValue");
+
 const statusBox = document.getElementById("statusBox");
 const mV = document.getElementById("mV");
 const mR = document.getElementById("mR");
@@ -404,6 +377,10 @@ const mLED = document.getElementById("mLED");
 const toolPill = document.getElementById("toolPill");
 const modePill = document.getElementById("modePill");
 
+const challengeText = document.getElementById("challengeText");
+const challengeChip = document.getElementById("challengeChip");
+
+// Game state
 let tool = "wire";
 let pendingNode = null;
 let hoverNode = null;
@@ -414,6 +391,12 @@ let ledVf = 2.0;
 let ledImin = 0.010; // 10mA
 let ledImax = 0.020; // 20mA
 let burned = false;
+
+// Resistor selection
+let selectedResistorOhms = Number(resistorValue.value);
+resistorValue.addEventListener("change", () => {
+  selectedResistorOhms = Number(resistorValue.value);
+});
 
 // Edge components: key -> component
 const edges = new Map();
@@ -428,12 +411,14 @@ function parseKey(key){
   const [r2,c2] = p2.split(",").map(Number);
   return [{r:r1,c:c1},{r:r2,c:c2}];
 }
-function nodeToXY(r,c){ return { x: PAD + c*dx, y: PAD + r*dy }; }
+function nodeToXY(r, c) {
+  return { x: c * dx, y: r * dy };
+}
 
 function defaultComponent(type){
   if(type==="wire") return { type, label:"" };
   if(type==="battery") return { type, value:targetV, label:`${targetV}V` };
-  if(type==="resistor") return { type, value:220, label:`220Ω` };
+  if(type==="resistor") return { type, value:selectedResistorOhms, label:`${selectedResistorOhms}Ω` };
   if(type==="led") return { type, label:"LED" };
   return { type };
 }
@@ -444,12 +429,15 @@ toolRow.addEventListener("click", (e) => {
   if(!t) return;
   setTool(t.dataset.tool);
 });
+
 function setTool(t){
   tool = t;
   [...toolRow.querySelectorAll(".tool")].forEach(x => x.classList.toggle("active", x.dataset.tool===tool));
   toolPill.textContent = toolLabel(tool);
   modePill.textContent = (tool==="eraser") ? "Erase" : "Place";
+  resistorPicker.style.display = (tool === "resistor") ? "block" : "none";
 }
+
 function toolLabel(t){
   return t==="wire" ? "Wire" :
          t==="battery" ? "Battery" :
@@ -457,10 +445,22 @@ function toolLabel(t){
          t==="led" ? "LED" :
          "Eraser";
 }
+
 window.addEventListener("keydown", (e)=>{
   const k = e.key.toLowerCase();
   const map = { "1":"wire", "2":"battery", "3":"resistor", "4":"led", "e":"eraser" };
   if(map[k]) setTool(map[k]);
+});
+
+/* Hover highlight (outside click handler!) */
+canvas.addEventListener("mousemove", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+  const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+
+  hoverNode = nearestNode(x, y);
+  canvas.style.cursor = hoverNode ? "pointer" : "default";
+  render(evaluateCircuit());
 });
 
 /* Click placement */
@@ -477,18 +477,6 @@ canvas.addEventListener("click", (e)=>{
     return;
   }
 
-  canvas.addEventListener("mousemove", (e) => {
-  const rect = canvas.getBoundingClientRect();
-  const x = (e.clientX - rect.left) * (canvas.width / rect.width);
-  const y = (e.clientY - rect.top) * (canvas.height / rect.height);
-
-  hoverNode = nearestNode(x, y);
-  canvas.style.cursor = hoverNode ? "pointer" : "default";
-
-  // re-draw so the hover ring shows immediately
-  render(evaluateCircuit());
-});
-
   // must be adjacent (Manhattan distance = 1)
   const man = Math.abs(pendingNode.r - n.r) + Math.abs(pendingNode.c - n.c);
   if(man !== 1){
@@ -503,15 +491,6 @@ canvas.addEventListener("click", (e)=>{
     edges.delete(key);
   } else {
     edges.set(key, defaultComponent(tool));
-    // Shift cycles resistor values on placement
-    if(tool==="resistor" && e.shiftKey){
-      const comp = edges.get(key);
-      const vals = [100,220,330,470,1000];
-      const idx = vals.indexOf(comp.value);
-      comp.value = vals[(idx+1) % vals.length];
-      comp.label = `${comp.value}Ω`;
-      edges.set(key, comp);
-    }
   }
 
   pendingNode = null;
@@ -519,15 +498,19 @@ canvas.addEventListener("click", (e)=>{
 });
 
 function nearestNode(x,y){
+  // adjust for the drawBoard() translate(PAD, PAD)
+  const lx = x - PAD;
+  const ly = y - PAD;
+
   let best=null, bestD=1e9;
   for(let r=0;r<ROWS;r++){
     for(let c=0;c<COLS;c++){
-      const p = nodeToXY(r,c);
-      const d = Math.hypot(p.x-x, p.y-y);
+      const p = nodeToXY(r,c); // now 0..GW / 0..GH
+      const d = Math.hypot(p.x-lx, p.y-ly);
       if(d < bestD){ bestD=d; best={r,c}; }
     }
   }
-return bestD < 55 ? best : null;
+  return bestD < 55 ? best : null;
 }
 
 /* Graph helpers */
@@ -603,6 +586,12 @@ function evaluateCircuit(){
     if(comp.type==="resistor") resistors.push(key);
   }
 
+  // Update the top “Challenge” prompt to match current parameters
+  challengeChip.textContent = `${targetV}V • Vf≈${ledVf.toFixed(2)}V`;
+  challengeText.innerHTML =
+    `Keep current between <b>${(ledImin*1000).toFixed(0)}–${(ledImax*1000).toFixed(0)} mA</b>.
+     Build one loop with <b>1 battery</b>, <b>1 LED</b>, and <b>≥1 resistor</b>.`;
+
   if(edges.size === 0){
     return { ok:false, tone:"warn", msg:"Start by placing a <b>Battery</b> and some <b>Wires</b> to form a loop." };
   }
@@ -634,7 +623,8 @@ function evaluateCircuit(){
   const I = Vavail / R;
 
   if(burned){
-    return { ok:true, V, R, I, led:"BURNED", tone:"bad", msg:"LED is <b>burned out</b>. Click <b>New Challenge</b> or <b>Clear</b> and try again with more resistance." };
+    return { ok:true, V, R, I, led:"BURNED", tone:"bad",
+      msg:"LED is <b>burned out</b>. Click <b>New Challenge</b> or <b>Clear</b> and try again with more resistance." };
   }
 
   if(I > ledImax){
@@ -649,18 +639,16 @@ function evaluateCircuit(){
   }
 
   return { ok:true, V, R, I, led:"DIM", tone:"warn",
-    msg:`Circuit works, but LED is <b>dim</b> (${(I*1000).toFixed(1)} mA). Try lowering resistance (but stay under ${ (ledImax*1000).toFixed(0) } mA).` };
+    msg:`Circuit works, but LED is <b>dim</b> (${(I*1000).toFixed(1)} mA). Try lowering resistance (but stay under ${(ledImax*1000).toFixed(0)} mA).` };
 }
 
 /* Rendering */
 function render(res){
-  // metrics
   if(res.ok && res.V != null){
     mV.textContent = `${res.V.toFixed(1)} V`;
     mR.textContent = `${res.R.toFixed(0)} Ω`;
     mI.textContent = `${(res.I*1000).toFixed(1)} mA`;
     mLED.textContent = res.led;
-
     mLED.style.color = res.led==="ON" ? "var(--good)" : res.led==="DIM" ? "var(--warn)" : "var(--bad)";
   } else {
     mV.textContent = "—";
@@ -670,7 +658,6 @@ function render(res){
     mLED.style.color = "var(--text)";
   }
 
-  // status
   statusBox.className = `status ${res.tone || "warn"}`;
   statusBox.innerHTML = res.msg || "Place parts to begin.";
 
@@ -687,7 +674,7 @@ function drawBoard(res){
   ctx.fillStyle = g;
   ctx.fillRect(0,0,W,H);
 
-  // grid lines
+  // grid lines + content
   ctx.save();
   ctx.translate(PAD, PAD);
   ctx.strokeStyle = "rgba(255,255,255,.06)";
@@ -718,7 +705,6 @@ function drawBoard(res){
   for(let r=0;r<ROWS;r++){
     for(let c=0;c<COLS;c++){
       const p = nodeToXY(r,c);
-      // node glow
       ctx.beginPath();
       ctx.arc(p.x, p.y, 9, 0, Math.PI*2);
       ctx.fillStyle = "rgba(96,165,250,.10)";
@@ -733,6 +719,16 @@ function drawBoard(res){
     }
   }
 
+  // hover highlight
+  if(hoverNode){
+    const p = nodeToXY(hoverNode.r, hoverNode.c);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 12, 0, Math.PI*2);
+    ctx.strokeStyle = "rgba(96,165,250,.95)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
   // pending highlight
   if(pendingNode){
     const p = nodeToXY(pendingNode.r, pendingNode.c);
@@ -742,26 +738,6 @@ function drawBoard(res){
     ctx.lineWidth = 2;
     ctx.stroke();
   }
-
-  // hover highlight
-if(hoverNode){
-  const p = nodeToXY(hoverNode.r, hoverNode.c);
-  ctx.beginPath();
-  ctx.arc(p.x, p.y, 12, 0, Math.PI*2);
-  ctx.strokeStyle = "rgba(96,165,250,.95)";
-  ctx.lineWidth = 2;
-  ctx.stroke();
-}
-
-  // pending highlight
-if(pendingNode){
-  const p = nodeToXY(pendingNode.r, pendingNode.c);
-  ctx.beginPath();
-  ctx.arc(p.x, p.y, 13, 0, Math.PI*2);
-  ctx.strokeStyle = "rgba(167,139,250,.95)";
-  ctx.lineWidth = 2;
-  ctx.stroke();
-}
 
   ctx.restore();
 }
@@ -787,7 +763,6 @@ function drawComponent(p1,p2,comp,res){
         : "rgba(96,165,250,.70)";
   }
 
-  // base line (wire)
   ctx.strokeStyle = stroke;
   ctx.lineWidth = w;
   ctx.lineCap = "round";
@@ -796,7 +771,6 @@ function drawComponent(p1,p2,comp,res){
   ctx.lineTo(p2.x,p2.y);
   ctx.stroke();
 
-  // label/symbol
   const mx = (p1.x+p2.x)/2, my=(p1.y+p2.y)/2;
 
   if(comp.type==="battery"){
@@ -820,10 +794,10 @@ function labelText(t,x,y){
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 
-  // pill bg
-  const padX = 8, padY = 5;
+  const padX = 8;
   const w = ctx.measureText(t).width + padX*2;
   const h = 22;
+
   roundedRect(x - w/2, y - h/2, w, h, 999);
   ctx.fillStyle = "rgba(0,0,0,.30)";
   ctx.fill();
@@ -859,13 +833,11 @@ function drawBattery(mx,my,p1,p2){
   const ax = mx - (vx/len)*gap, ay = my - (vy/len)*gap;
   const bx = mx + (vx/len)*gap, by = my + (vy/len)*gap;
 
-  // long plate
   ctx.beginPath();
   ctx.moveTo(ax + nx*plateLong, ay + ny*plateLong);
   ctx.lineTo(ax - nx*plateLong, ay - ny*plateLong);
   ctx.stroke();
 
-  // short plate
   ctx.beginPath();
   ctx.moveTo(bx + nx*plateShort, by + ny*plateShort);
   ctx.lineTo(bx - nx*plateShort, by - ny*plateShort);
@@ -908,7 +880,6 @@ function drawLED(mx,my,p1,p2,res){
   ctx.save();
   ctx.shadowBlur = 0;
 
-  // diode triangle
   const size=14;
   const ax = mx - ux*8;
   const ay = my - uy*8;
@@ -921,7 +892,6 @@ function drawLED(mx,my,p1,p2,res){
   ctx.closePath();
   ctx.fill();
 
-  // bar
   ctx.strokeStyle="rgba(0,0,0,.35)";
   ctx.lineWidth=3;
   ctx.beginPath();
@@ -929,7 +899,6 @@ function drawLED(mx,my,p1,p2,res){
   ctx.lineTo(mx + ux*10 - px*size*0.85, my + uy*10 - py*size*0.85);
   ctx.stroke();
 
-  // rays if ON
   if(res && res.ok && res.led==="ON"){
     ctx.strokeStyle="rgba(52,211,153,.95)";
     ctx.lineWidth=2;
@@ -944,7 +913,7 @@ function drawLED(mx,my,p1,p2,res){
   ctx.restore();
 }
 
-/* Challenge controls */
+/* Buttons */
 document.getElementById("clearBtn").addEventListener("click", ()=>{
   edges.clear();
   burned = false;
@@ -967,8 +936,8 @@ function newChallenge(){
 
   statusBox.className = "status warn";
   statusBox.innerHTML =
-    `New challenge: <b>${targetV}V</b> battery. LED <b>Vf ≈ ${ledVf.toFixed(2)}V</b>.
-     ON above <b>${(ledImin*1000).toFixed(0)}mA</b>, burns above <b>${(ledImax*1000).toFixed(0)}mA</b>.`;
+    `New challenge loaded. Battery <b>${targetV}V</b>, LED <b>Vf≈${ledVf.toFixed(2)}V</b>.
+     Turn ON above <b>${(ledImin*1000).toFixed(0)}mA</b>, burns above <b>${(ledImax*1000).toFixed(0)}mA</b>.`;
 
   render(evaluateCircuit());
 }
