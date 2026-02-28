@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AgroVoltaics: Level Up</title>
+    <style>
+        :root { --sun-color: #fbbf24; --panel: #1e3a8a; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #4facfe; height: 100vh; overflow: hidden; color: white; transition: background 1.5s ease; }
+        
+        /* UI Elements */
+        .overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(15px); display: flex; align-items: center; justify-content: center; z-index: 100; text-align: center; }
+        .modal { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); max-width: 400px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        
+        .hud { position: absolute; top: 20px; width: 100%; display: flex; justify-content: space-around; z-index: 10; pointer-events: none; }
+        .stat { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 12px; border-radius: 15px; width: 100px; border: 1px solid rgba(255,255,255,0.1); }
+        .label { font-size: 0.6rem; text-transform: uppercase; opacity: 0.7; letter-spacing: 1px; }
+        .val { font-size: 1.2rem; font-weight: 800; display: block; }
+
+        .btn { background: var(--sun-color); color: #92400e; border: none; padding: 18px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 20px; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4); }
+        
+        #eventPopup { 
+            position: absolute; top: 100px; left: 50%; transform: translateX(-50%);
+            background: #ef4444; color: white; padding: 10px 20px; border-radius: 10px;
+            font-weight: bold; display: none; z-index: 50; animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
+</head>
+<body>
+
+<div id="introScreen" class="overlay">
+    <div class="modal">
+        <h1 id="title">LEVEL 1</h1>
+        <p id="mission">Harvest <b>200kW</b> of energy.<br>Keep Crop Health above <b>0%</b>.</p>
+        <button class="btn" onclick="startGame()">START MISSION</button>
+    </div>
+</div>
+
+<div id="eventPopup">⚠️ STORM WARNING: SHIELD CROPS!</div>
+
+<div class="hud">
+    <div class="stat"><span class="label">Level</span><span id="lvlDisp" class="val">1</span></div>
+    <div class="stat"><span class="label">Energy</span><span id="pwr" class="val">0/200</span></div>
+    <div class="stat"><span class="label">Health</span><span id="hlth" class="val">100%</span></div>
+</div>
+
+<canvas id="stage"></canvas>
+
+<script>
+const canvas = document.getElementById('stage');
+const ctx = canvas.getContext('2d');
+let w, h, active = false;
+
+// Game Config
+let level = 1;
+let energyGoal = 200;
+let energyTotal = 0;
+let health = 100;
+let tilt = 0;
+let sunPos = 0;
+let weatherMultiplier = 1.0;
+let stormActive = false;
+
+function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+async function startGame() {
+    document.getElementById('introScreen').style.display = 'none';
+    if (typeof DeviceOrientationEvent !== 'undefined' && DeviceOrientationEvent.requestPermission) {
+        try { await DeviceOrientationEvent.requestPermission(); } catch(e){}
+    }
+    window.addEventListener('deviceorientation', (e) => { tilt = Math.max(-45, Math.min(45, e.gamma || 0)); });
+    window.addEventListener('mousemove', (e) => { if (!('ontouchstart' in window)) tilt = ((e.clientX / w) - 0.5) * 90; });
+
+    // Light Sensor / Interaction
+    window.addEventListener('mousedown', () => { if(stormActive) weatherMultiplier = 0.1; });
+    window.addEventListener('mouseup', () => { weatherMultiplier = 1.0; });
+
+    active = true;
+    requestAnimationFrame(loop);
+}
+
+// Random Events to make it "Fun"
+setInterval(() => {
+    if (!active || stormActive) return;
+    if (Math.random() > 0.7) { // 30% chance for a storm
+        triggerStorm();
+    }
+}, 8000);
+
+function triggerStorm() {
+    stormActive = true;
+    document.getElementById('eventPopup').style.display = 'block';
+    setTimeout(() => {
+        stormActive = false;
+        document.getElementById('eventPopup').style.display = 'none';
+        weatherMultiplier = 1.0;
+    }, 5000);
+}
+
+function drawPanel(x, y) {
+    const pw = 60, ph = 35;
+    const skew = (tilt / 45) * 15;
+    const shadowX = (sunPos / 60) * 30;
+
+    ctx.fillStyle = 'rgba(0,30,0,0.2)';
+    ctx.fillRect(x + skew + shadowX, y + 8, pw, ph);
+
+    ctx.fillStyle = '#1e3a8a';
+    ctx.strokeStyle = '#60a5fa';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(x - skew, y); ctx.lineTo(x + pw - skew, y);
+    ctx.lineTo(x + pw + skew, y + ph); ctx.lineTo(x + skew, y + ph);
+    ctx.closePath(); ctx.fill(); ctx.stroke();
+}
+
+function nextLevel() {
+    active = false;
+    level++;
+    energyGoal += 150;
+    energyTotal = 0;
+    health = 100;
+    document.getElementById('title').innerText = "LEVEL " + level;
+    document.getElementById('mission').innerHTML = `Goal: <b>${energyGoal}kW</b><br>The sun is moving faster now!`;
+    document.getElementById('lvlDisp').innerText = level;
+    document.getElementById('introScreen').style.display = 'flex';
+}
+
+function loop() {
+    if (!active) return;
+    ctx.clearRect(0,0,w,h);
+
+    // 1. Slow Sun Movement (based on level)
+    sunPos = Math.sin(Date.now() / (6000 / (1 + level * 0.1))) * 55;
+    
+    // 2. Weather Visuals
+    if (stormActive && weatherMultiplier < 0.5) {
+        document.body.style.background = "#1e293b";
+    } else {
+        document.body.style.background = "#4facfe";
+    }
+
+    // 3. Draw Grass
+    ctx.fillStyle = '#166534';
+    ctx.fillRect(0, h * 0.35, w, h);
+
+    // 4. Power & Health Logic
+    let alignment = Math.abs(tilt - sunPos);
+    let efficiency = Math.max(0, Math.cos(alignment * Math.PI / 180));
+    
+    // Gain energy
+    energyTotal += efficiency * weatherMultiplier * 0.2;
+    
+    // Health logic: If storm is active and you DON'T use light sensor (weatherMultiplier), health drops
+    if (stormActive && weatherMultiplier > 0.5) {
+        health -= 0.2; // Hail damage!
+    } else {
+        let shadeError = Math.abs(alignment - 20);
+        health -= (shadeError > 15) ? 0.05 : -0.02;
+    }
+    health = Math.max(0, Math.min(100, health));
+
+    // 5. Update HUD
+    document.getElementById('pwr').innerText = `${Math.floor(energyTotal)}/${energyGoal}`;
+    document.getElementById('hlth').innerText = Math.floor(health) + "%";
+
+    // 6. Draw Grid
+    for(let i=0; i<3; i++) {
+        for(let j=0; j<4; j++) {
+            drawPanel((w/4)*(i+0.7), (h*0.35) + 50 + (j*70));
+        }
+    }
+
+    if(health <= 0) {
+        alert("The farm was destroyed! You reached Level " + level);
+        location.reload();
+    } else if (energyTotal >= energyGoal) {
+        nextLevel();
+    } else {
+        requestAnimationFrame(loop);
+    }
+}
+</script>
+</body>
+</html>
